@@ -1,0 +1,48 @@
+.header {
+  margin: 34px 30px;
+  background-color: lightcyan;
+
+  border-radius: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 23px 40px;
+  > div {
+    width: 70px;
+    height: 57px;
+    display: flex;
+    align-items: center;
+    > img {
+      width: 100%;
+    }
+  }
+  > nav {
+    width: 571px;
+    > ul {
+      width: 100%;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 35px;
+      > li {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%; /* 19.2px */
+        cursor: pointer;
+        &:hover{
+            border-bottom: 1px solid black;
+            transition: all 300ms linear;
+        }
+      }
+
+    }
+  }
+  > span {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 19.2px */
+  }
+}
