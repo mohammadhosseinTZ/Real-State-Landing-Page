@@ -6,6 +6,8 @@ export default function App() {
     <div>
       <Header/>
       <About/>
+      <span style={{margin:'58px 0 16px' , textAlign:'center' , display:'block' , fontSize:16}}>Three steps. Three minutes.</span>
+      <h2 style={{fontSize:50 , textAlign:'center' , margin:0}}>Everything should be this easy.</h2>
     </div>
   )
 }
