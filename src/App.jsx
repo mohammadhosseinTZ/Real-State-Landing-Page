@@ -45,11 +45,47 @@ export default function App() {
         <span style={{ display: "block", fontSize: 16 }}>
           Best Project of the Years
         </span>
-        <div style={{display:'flex' , alignItems:'center' , justifyContent:'space-between'}}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
           <h2 style={{ fontSize: 50, margin: 0 }}>Our recent projects</h2>
-          <div style={{display:'flex'}}>
-            <button style={{borderRadius:'50%' , display:'flex' , alignItems:'center' , justifyContent:'center' , color:'black' , backgroundColor:'white' , border:'none' , width:30 , height:30 , cursor:'pointer'} }>&#11164;</button>
-            <button style={{borderRadius:'50%' , display:'flex' , alignItems:'center' , justifyContent:'center' , color:'white' , backgroundColor:'black' , border:'none' , width:30 , height:30 , cursor:'pointer'} }>&#11166;</button>
+          <div style={{ display: "flex" }}>
+            <button
+              style={{
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "black",
+                backgroundColor: "white",
+                border: "none",
+                width: 30,
+                height: 30,
+                cursor: "pointer",
+              }}
+            >
+              &#11164;
+            </button>
+            <button
+              style={{
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "white",
+                backgroundColor: "black",
+                border: "none",
+                width: 30,
+                height: 30,
+                cursor: "pointer",
+              }}
+            >
+              &#11166;
+            </button>
           </div>
         </div>
       </div>
