@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
+
 
 import projectStyle from "./projectStyle.module.scss";
 import { starIcon } from "./starIcon";
-export default function Project({ img , title , defultValue }) {
+export default function Project({ img, title, defultValue }) {
   const [raiting, setRating] = useState(defultValue);
   const [hoverRaiting, setHoverRaiting] = useState(null);
+
+ 
   return (
     <div className={projectStyle.container}>
       <div>
@@ -14,6 +17,7 @@ export default function Project({ img , title , defultValue }) {
       <p>
         Lorem ipsum dolor sit amet consectetur. Adipiscing imperdiet bibendum.
       </p>
+      
       <div>
         {[...Array(5)].map((_, index) => {
           const radioValue = index + 1;
@@ -34,6 +38,7 @@ export default function Project({ img , title , defultValue }) {
           );
         })}
       </div>
+      
     </div>
   );
 }

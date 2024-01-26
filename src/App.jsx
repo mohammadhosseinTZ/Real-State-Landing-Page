@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import Header from "./component/Header/Header";
 import About from "./component/About/About";
 import eddit from "./component/Connecting/edit-2.png";
@@ -10,6 +10,7 @@ import Project from "./component/Project/Project";
 import projectImg from "./component/Project/Rectangle 19.png";
 import projectImg2 from "./component/Project/Rectangle 20.png";
 import projectImg3 from "./component/Project/Rectangle 21.png";
+
 export default function App() {
   const [btnClick, setBtnClick] = useState(2);
 
@@ -30,11 +31,15 @@ export default function App() {
       defultValue={4}
     />,
     <Project
-      img={projectImg3}
+      img={projectImg2}
       title={"Sobha Hearland II Villas"}
-      defultValue={4}
+      defultValue={2}
     />,
   ];
+
+ 
+
+  
   return (
     <div>
       <Header />
@@ -84,14 +89,12 @@ export default function App() {
           <div style={{ display: "flex", marginRight: 30 }}>
             <button
               onClick={() => {
-                if(btnClick<=1)setBtnClick(btnClick)
-                else setBtnClick(btnClick - 1)
+                if (btnClick <= 1) setBtnClick(btnClick);
+                else setBtnClick(btnClick - 1);
               }}
-             
-
               style={{
-                cursor:btnClick===1?'not-allowed':'pointer' ,
-           
+                cursor: btnClick === 1 ? "not-allowed" : "pointer",
+
                 borderRadius: "50%",
                 display: "flex",
                 alignItems: "center",
@@ -101,16 +104,18 @@ export default function App() {
                 border: "none",
                 width: 30,
                 height: 30,
-                
               }}
             >
               &#11164;
             </button>
             <button
-
               onClick={() => setBtnClick(btnClick + 1)}
+              disabled={btnClick >= projectsComponent.length ? true : false}
               style={{
-                cursor:btnClick===projectsComponent.length?'not-allowed':'pointer' ,
+                cursor:
+                  btnClick >= projectsComponent.length
+                    ? "not-allowed"
+                    : "pointer",
                 borderRadius: "50%",
                 display: "flex",
                 alignItems: "center",
@@ -127,13 +132,29 @@ export default function App() {
           </div>
         </div>
       </div>
-      <div style={{textAlign:'center', padding:30 , paddingBottom:0}}>
-          {Math.trunc(btnClick*100/projectsComponent.length) +' '+ '%'}
-          <div style={{width:Math.trunc(btnClick*100/projectsComponent.length)+'%' , height:5 , backgroundColor:'black' }}></div>
-        </div>
-      <div style={{ display: "flex",alignItems:'center' , justifyContent:'center' , gap: 20, margin: "10px 30px 227px" }}>
-        {projectsComponent.slice(0,btnClick).map(elem => elem)}
+      <div style={{ textAlign: "center", padding: 30, paddingBottom: 0 }}>
+        {Math.trunc((btnClick * 100) / projectsComponent.length) + " " + "%"}
+        <div
+          style={{
+            width:
+              Math.trunc((btnClick * 100) / projectsComponent.length) + "%",
+            height: 5,
+            backgroundColor: "black",
+          }}
+        ></div>
       </div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 20,
+          margin: "10px 30px 227px",
+        }}
+      >
+        {projectsComponent.slice(0, btnClick).map((elem) => elem)}
+      </div>
+      
     </div>
   );
 }
