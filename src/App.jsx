@@ -1,16 +1,16 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import Header from "./component/Header/Header";
 import About from "./component/About/About";
 import eddit from "./component/Connecting/edit-2.png";
 import message from "./component/Connecting/messages.png";
 import sms from "./component/Connecting/sms-tracking.png";
-
+import { useInView } from "react-intersection-observer";
 import Connecting from "./component/Connecting/Connecting";
 import Project from "./component/Project/Project";
 import projectImg from "./component/Project/Rectangle 19.png";
 import projectImg2 from "./component/Project/Rectangle 20.png";
 import projectImg3 from "./component/Project/Rectangle 21.png";
-
+import appCss from "./appCss.module.scss";
 export default function App() {
   const [btnClick, setBtnClick] = useState(2);
 
@@ -36,10 +36,19 @@ export default function App() {
       defultValue={2}
     />,
   ];
+  const { ref: messageIcon, inView: myElement } = useInView({
+    root: null,
+    triggerOnce: true,
+  });
+  const { ref: smsIcon, inView: myElementsms } = useInView({
+    root: null,
+    triggerOnce: true,
+  });
+  const { ref: edditIcon, inView: myElementIcon } = useInView({
+    root: null,
+    triggerOnce: true,
+  });
 
- 
-
-  
   return (
     <div>
       <Header />
@@ -66,9 +75,18 @@ export default function App() {
           gap: 160,
         }}
       >
-        <Connecting img={message} title={"Answer questions"} />
-        <Connecting img={sms} title={"Select a quote"} />
-        <Connecting img={eddit} title={"Get registered"} />
+        <span
+          ref={messageIcon}
+          className={myElement ? appCss.messageStyle : ""}
+        >
+          <Connecting img={message} title={"Answer questions"} />
+        </span>
+        <span ref={smsIcon} className={myElementsms ? appCss.smsStyle : ""}>
+          <Connecting img={sms} title={"Select a quote"} />
+        </span>
+        <span ref={edditIcon} className={edditIcon ? appCss.edditStyle : ""}>
+          <Connecting img={eddit} title={"Get registered"} />
+        </span>
       </div>
       <div
         style={{
@@ -133,13 +151,15 @@ export default function App() {
         </div>
       </div>
       <div style={{ textAlign: "center", padding: 30, paddingBottom: 0 }}>
-        {Math.trunc((btnClick * 100) / projectsComponent.length) + " " + "%"}
+        {/* {Math.trunc((btnClick * 100) / projectsComponent.length) + " " + "%"} */}
+        {btnClick +' of '+ projectsComponent.length +' projects'}
         <div
           style={{
             width:
               Math.trunc((btnClick * 100) / projectsComponent.length) + "%",
             height: 5,
             backgroundColor: "black",
+            marginTop:'10px'
           }}
         ></div>
       </div>
@@ -154,7 +174,6 @@ export default function App() {
       >
         {projectsComponent.slice(0, btnClick).map((elem) => elem)}
       </div>
-      
     </div>
   );
 }

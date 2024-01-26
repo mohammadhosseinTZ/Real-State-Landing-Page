@@ -1,0 +1,48 @@
+.messageStyle{
+    position: relative;
+    animation-name:message ;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    left: -300px;
+}
+.smsStyle{
+    position: relative;
+    animation-name: sms;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    bottom: -300px;
+}
+.edditStyle{
+    position: relative;
+    animation-name: eddit;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    right:  -300px;
+}
+@keyframes message {
+   
+    from{
+        left: -300px;
+    }
+    to{
+        left: 0;
+    }
+}
+@keyframes sms {
+   
+    from{
+        bottom: -300px;
+    }
+    to{
+        bottom: 0;
+    }
+}
+@keyframes eddit {
+   
+    from{
+        right: -300px;
+    }
+    to{
+        right: 0;
+    }
+}
